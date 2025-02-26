@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health and Wellness App</title>
+</head>
+<body>
+  <h1>Welcome to the Health and Wellness App</h1>
+
+  <!-- Button to fetch user details -->
+  <button onclick="getUserData()">Get User Data</button>
+
+  <div id="user-info">
+    <!-- This is where user information will be displayed -->
+  </div>
+
+  <script>
+    // Function to fetch data from the backend
+    function getUserData() {
+  fetch('/users')  // ✅ No need for "http://localhost:3002"
+    .then(response => response.json())
+    .then(data => {
+      let userInfo = document.getElementById('user-info');
+      userInfo.innerHTML = '';
+
+      data.forEach(user => {
+        userInfo.innerHTML += `
+          <div>
+            <h2>${user.first_name} ${user.last_name}</h2>
+            <p>Email: ${user.email}</p>
+            <p>Phone: ${user.phone_number}</p>
+          </div>
+        `;
+      });
+    })
+    .catch(error => console.error('Error fetching user data:', error));
+}
+
+  </script>
+</body>
+</html>
