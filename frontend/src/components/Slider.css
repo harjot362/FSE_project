@@ -1,0 +1,102 @@
+/* Blog Header */
+.blog-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .blog-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .blog-header p {
+    font-size: 16px;
+    color: #666;
+  }
+
+/* Slider container */
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* Individual slides */
+  .slide {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .slide.active {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Slide content */
+  .slide-content {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Image */
+  .slide-image {
+    width: 50%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .slide-content:hover .slide-image {
+    transform: scale(1.05);
+  }
+  
+  /* Text section */
+  .slide-text {
+    width: 50%;
+    background: #fdf6ed;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .category {
+    display: inline-block;
+    background: #ff9aa2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+  
+  /* Title */
+  .slide-text h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Pagination */
+  .pagination {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .dot.active {
+    background-color: #ff9aa2;
+  }
+  
