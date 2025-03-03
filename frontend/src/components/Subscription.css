@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f8f9fa;
+    background: #fff6ef;
     padding: 40px 80px;
     border-radius: 10px;
   }
@@ -40,7 +40,7 @@
   
   .input-container .icon {
     font-size: 18px;
-    color: #009688;
+    color: #e6ccb2;
     margin-right: 10px;
   }
   
@@ -53,7 +53,7 @@
   }
   
   .subscribe-button {
-    background: #009688;
+    background: #e6ccb2;
     border: none;
     padding: 15px;
     border-radius: 30px;
