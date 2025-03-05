@@ -86,6 +86,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./Slider.css";
+import { useLocation } from "react-router-dom";
 
 const sliderData = [
   {
@@ -124,6 +125,9 @@ function Slider() {
     }, 5000);
     return () => clearInterval(interval);
   }, [autoPlay]);
+  const location = useLocation();
+// Hide blog slider on login and signup pages
+if (location.pathname === "/login" || location.pathname === "/signup") return null;
 
   const goToSlide = (index) => {
     setActiveIndex(index);

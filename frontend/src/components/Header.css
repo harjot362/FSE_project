@@ -1,12 +1,13 @@
-.header {
+ /* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1000;
+    
   }
   
   .logo {
@@ -31,9 +32,7 @@
     margin-right: 5px;
   }
   
-  /* .logo-sub {
-    color: #a299c3;
-  } */
+  
   
   .nav {
     display: flex;
@@ -48,7 +47,7 @@
     position: relative;
   }
   
-  /* Dropdown styles */
+
   .dropdown {
     position: relative;
     display: inline-block;
@@ -83,7 +82,7 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
-  /* Show dropdown when open */
+
   .dropdown:hover .dropdown-menu {
     display: block;
     opacity: 1;
@@ -102,13 +101,13 @@
     background-color: #f0f0f0;
   }
   
-  /* Location icon */
+
   .location-icon {
     font-size: 18px;
     margin-right: 5px;
   }
   
-  /* Get Started button */
+
   .get-started {
     background: transparent;
     border: 2px solid #ddb892;
@@ -140,7 +139,7 @@
     font-size: 18px;
   }
   
-  /* Modal Styles */
+
   .location-modal {
     position: fixed;
     top: 0;
@@ -214,4 +213,202 @@
   
   .location-list li:hover {
     background: #f0f0f0;
-  }
+  }  */
+
+  /* Header container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Ensures header stays at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Navigation Bar */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  color: #422208;
+  transition: color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+  color: #454444;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 220px;
+  padding: 10px 0;
+  list-style: none;
+  display: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.dropdown-menu li {
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Location Picker */
+.location-picker {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.location-icon {
+  font-size: 18px;
+  color: #ddb892;
+}
+
+.location-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.location-modal-content {
+  background: white;
+  width: 350px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+}
+
+.close-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.search-icon {
+  color: gray;
+  margin-right: 5px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.location-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.location-list li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.location-list li:hover {
+  background: #f0f0f0;
+}
+
+/* Get Started Button */
+.get-started {
+  background: transparent;
+  border: 2px solid #ddb892;
+  color: #ddb892;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.get-started:hover {
+  background: #ddb892;
+  color: white;
+}

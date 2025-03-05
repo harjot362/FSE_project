@@ -1,4 +1,4 @@
-.subscription-container {
+/* .subscription-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,4 +67,128 @@
     color: white;
     font-size: 18px;
   }
-  
+   */
+
+   .subscription-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff6ef;
+    padding: 50px 80px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    flex-wrap: wrap;
+}
+
+/* Subscription Text Section */
+.subscription-content {
+    max-width: 450px;
+}
+
+.subscription-content h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.subscription-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Subscription Form */
+.subscription-form {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 8px 10px;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.subscription-form:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Field & Icon */
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.input-container .icon {
+    font-size: 20px;
+    color: #d4a373;
+    margin-right: 12px;
+}
+
+.subscription-form input {
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 260px;
+    border-radius: 50px;
+}
+
+/* Subscribe Button */
+.subscribe-button {
+    background: #e6ccb2;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.subscribe-button:hover {
+    background: #d4a373;
+}
+
+.subscribe-button svg {
+    color: white;
+    font-size: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .subscription-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .subscription-form {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 20px;
+    }
+
+    .subscription-form input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .subscription-content h2 {
+        font-size: 22px;
+    }
+
+    .subscription-content p {
+        font-size: 14px;
+    }
+
+    .subscribe-button {
+        padding: 12px 14px;
+    }
+}

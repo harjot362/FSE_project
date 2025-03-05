@@ -1,40 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
+import { FaMapMarkerAlt, FaSearch } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
-import { FaMapMarkerAlt } from "react-icons/fa"; // Import GPS Icon
-import { IoClose } from "react-icons/io5"; // Import Close Icon
-import { FaSearch } from "react-icons/fa"; // Import Search Icon
 
 const locations = [
-    "Agra", "Ahmedabad", "Ambala", "Amritsar", "Bahadurgarh", "Bengaluru",
-    "Bhopal", "Bhubaneswar", "Chandigarh", "Chennai", "Delhi", "Hyderabad",
-    "Kolkata", "Mumbai", "Pune", "Punjab"
-  ];
-  
+  "Agra", "Ahmedabad", "Ambala", "Amritsar", "Bahadurgarh", "Bengaluru",
+  "Bhopal", "Bhubaneswar", "Chandigarh", "Chennai", "Delhi", "Hyderabad",
+  "Kolkata", "Mumbai", "Pune", "Punjab"
+];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("Choose Location");
-
-
-
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev);
-  };
-
-  const toggleLocationModal = () => {
-    setIsLocationModalOpen(!isLocationModalOpen);
-  };
-
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const toggleLocationModal = () => setIsLocationModalOpen(!isLocationModalOpen);
   const handleLocationSelect = (location) => {
     setSelectedLocation(location);
     setIsLocationModalOpen(false);
   };
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -47,12 +37,13 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo">
-        <img src="/logo.png" alt="The Wellness Corner" />
-        <span className="logo-text">
-          <span className="logo-main"></span>
-        </span>
-      </div>
+       <div className="logo">
+        {/* <img src="/logo.png" alt="The Wellness Corner" />
+      </div>  */}
+      <a href="/">
+    <img src="/logo.png" alt="The Wellness Corner" />
+  </a>
+  </div>
       <nav className="nav">
         <div className="nav-item">
           <div className="dropdown" ref={dropdownRef}>
@@ -77,13 +68,10 @@ const Header = () => {
           {selectedLocation}
         </div>
 
-
-        
         <div className="nav-item">About Us</div>
-        <button className="get-started">Get Started</button>
+        <button onClick={() => navigate("/login")} className="get-started">Get Started</button>
       </nav>
-
-      {/* Location Selection Modal */}
+      
       {isLocationModalOpen && (
         <div className="location-modal">
           <div className="location-modal-content">
@@ -101,15 +89,11 @@ const Header = () => {
               />
             </div>
             <ul className="location-list">
-              {locations
-                .filter((loc) =>
-                  loc.toLowerCase().includes(search.toLowerCase())
-                )
-                .map((loc, index) => (
-                  <li key={index} onClick={() => handleLocationSelect(loc)}>
-                    {loc}
-                  </li>
-                ))}
+              {locations.filter((loc) => loc.toLowerCase().includes(search.toLowerCase())).map((loc, index) => (
+                <li key={index} onClick={() => handleLocationSelect(loc)}>
+                  {loc}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -119,3 +103,4 @@ const Header = () => {
 };
 
 export default Header;
+

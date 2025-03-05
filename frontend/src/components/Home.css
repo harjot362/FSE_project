@@ -36,7 +36,6 @@
 .cta-button {
     padding: 14px 32px;
     background-color: #ffffff;
-    color: #00b7ff;
     border: none;
     border-radius: 25px;
     font-size: 18px;
@@ -47,7 +46,7 @@
 
 .cta-button:hover {
     background-color: #f4f9ff;
-    color: #0095cc;
+    color: #422208;
 }
 
 .services {
@@ -83,14 +82,14 @@
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    border-color: #00b7ff;
+    border-color: #784113;
 }
 
 .service-icon {
     font-size: 50px;
     margin-bottom: 20px;
     display: block;
-    color: #00b7ff;
+
 }
 
 .service-card h3 {

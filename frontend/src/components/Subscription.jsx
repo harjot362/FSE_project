@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import "./Subscription.css";
+import { useLocation } from "react-router-dom";
 import { FiMail, FiArrowRight } from "react-icons/fi";
+import "./Subscription.css";
 
 function Subscription() {
-  const [email, setEmail] = useState("");
+  const location = useLocation(); // ✅ Hook at the top level
+
+  // ✅ Define condition after all hooks
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+
+  // ✅ Hook must ALWAYS be called before any return statement
+  const [email, setEmail] = useState(""); 
+
+  if (isAuthPage) return null; // ✅ Safe to conditionally return AFTER hooks
 
   const handleSubscribe = (e) => {
     e.preventDefault();
