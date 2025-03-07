@@ -4,6 +4,7 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: sans-serif;
+    color: #333;
   }
   
   .illustration img {
@@ -51,15 +52,15 @@
     height: 40px;
     width: 100%;
     padding: 15px;
-    background-color: #f1f9ff;
-    border: 2px solid #bce0fd;
+    background-color: #f7f3ef;
+    border: 2px solid #e3ccb6;
     border-radius: 8px;
   }
   
   .form button {
     height: 40px;
     width: 100%;
-    background-color: #258de6;
+    background-color: #ddb892;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;

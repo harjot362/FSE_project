@@ -4,20 +4,34 @@ import { FiMail, FiArrowRight } from "react-icons/fi";
 import "./Subscription.css";
 
 function Subscription() {
-  const location = useLocation(); // ✅ Hook at the top level
+  const location = useLocation();  
+  const [email, setEmail] = useState(""); // ✅ Make sure this line exists
 
-  // ✅ Define condition after all hooks
+  // Hide subscription on auth pages
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+  if (isAuthPage) return null; 
 
-  // ✅ Hook must ALWAYS be called before any return statement
-  const [email, setEmail] = useState(""); 
-
-  if (isAuthPage) return null; // ✅ Safe to conditionally return AFTER hooks
-
-  const handleSubscribe = (e) => {
+  // Handle form submission
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    console.log("Subscribed with:", email);
-    setEmail(""); // Clear input after submission
+    try {
+      const response = await fetch("http://localhost:5000/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Subscription successful!");
+        setEmail(""); // ✅ Make sure this function is correctly called
+      } else {
+        alert(data.error || "Subscription failed");
+      }
+    } catch (error) {
+      console.error("Subscription error:", error);
+      alert("Failed to connect to the server. Try again later.");
+    }
   };
 
   return (
