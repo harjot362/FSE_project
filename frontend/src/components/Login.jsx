@@ -1,49 +1,14 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import "./SignUp.css"; // Corrected import path
-
-// const preventRefresh = (e) => {
-//     e.preventDefault();
-// };
-
-// export default function Login() {
-//     return (
-//         <div className="wrapper signIn">
-//             <div className="illustration">
-//                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0FER3woH-RFLlwqmPun6DfUZYBkkFc1lB9A&s" alt="illustration" />
-//             </div>
-//             <div className="form">
-//                 <div className="heading">LOGIN</div>
-//                 <form>
-//                     <div>
-//                         <label htmlFor="name">Name</label>
-//                         <input type="text" id="name" placeholder="Enter your name" />
-//                     </div>
-//                     <div>
-//                         <label htmlFor="email">E-Mail</label>
-//                         <input type="email" id="email" placeholder="Enter your mail" />
-//                     </div>
-//                     <button type="submit" onClick={preventRefresh}>
-//                         Submit
-//                     </button>
-//                 </form>
-//                 <p>
-//                     Don't have an account? <Link to="/SignUp"> Sign Up </Link>
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// }
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./SignUp.css";
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        name: "",
+        email: "",
         password: ""
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData(prev => ({
@@ -69,7 +34,7 @@ export default function Login() {
 
             if (res.ok) {
                 alert("Login successful!");
-                // Navigate to dashboard or home
+                navigate("/"); // ✅ redirect to home
             } else {
                 alert(data.message || "Login failed");
             }
@@ -88,13 +53,13 @@ export default function Login() {
                 <div className="heading">LOGIN</div>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" />
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" />
                     </div>
                     <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
-          </div>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
+                    </div>
                     <button type="submit">Submit</button>
                 </form>
                 <p>

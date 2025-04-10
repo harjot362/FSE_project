@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 // LOGIN
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
+  console.log("📥 Login request received:", email, password);
 
   db.query("SELECT * FROM users WHERE email = ?", [email], async (err, results) => {
     if (err) return res.status(500).json(err);
@@ -17,6 +18,11 @@ router.post("/login", (req, res) => {
 
     if (!isMatch) return res.status(401).json({ msg: "Invalid password" });
 
+    // ✅ Update lastLogin time
+    const loginTime = new Date();
+    db.query("UPDATE users SET lastLogin = ? WHERE id = ?", [loginTime, user.id]);
+
+    // ✅ Generate JWT token
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
     res.json({ token, user: { id: user.id, name: user.name, email: user.email } });
   });

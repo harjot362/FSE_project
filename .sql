@@ -6,3 +6,5 @@ CREATE TABLE IF NOT EXISTS subscriptions (
     email VARCHAR(255) UNIQUE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+SELECT id, name, email, password FROM users;

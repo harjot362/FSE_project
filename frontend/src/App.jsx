@@ -50,7 +50,6 @@ import React from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-
 import Header from "./components/Header";
 import Slider from "./components/Slider";
 import Subscription from "./components/Subscription";
