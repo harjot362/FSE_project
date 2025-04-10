@@ -92,9 +92,9 @@ export default function Login() {
                         <input type="text" id="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" />
                     </div>
                     <div>
-                        <label htmlFor="email">E-Mail</label>
-                        <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="Enter your mail" />
-                    </div>
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
+          </div>
                     <button type="submit">Submit</button>
                 </form>
                 <p>

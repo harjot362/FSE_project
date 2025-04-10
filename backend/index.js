@@ -38,7 +38,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "", // Add your DB password here if any
+  password: "harjotkb_2694$", // Add your DB password here if any
   database: "simplywell", // Make sure this matches your DB name
 });
 
@@ -71,6 +71,8 @@ app.post("/signup", (req, res) => {
     return res.status(200).json({ message: "Signup successful" });
   });
 });
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
 
 // Optional: Mount route from auth.js if needed
 // const authRoutes = require("./routes/auth");
