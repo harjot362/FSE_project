@@ -154,7 +154,7 @@ export default function SignUp() {
       if (res.ok) {
         alert("✅ Signup successful!");
         // Redirect to login page
-        // navigate("/login");
+        navigate("/login");
       } else {
         alert(`❌ ${data.msg || "Signup failed"}`);
       }
@@ -188,7 +188,7 @@ export default function SignUp() {
           <div>
             <label htmlFor="email">E-Mail</label>
             <input
-              type="text"
+              type="email"
               id="email"
               value={formData.email}
               onChange={handleChange}

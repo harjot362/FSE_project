@@ -32,9 +32,13 @@ export default function Login() {
             const data = await res.json();
             console.log("Login response:", data);
 
+            // if (res.ok) {
+            //     alert("Login successful!");
+            //     navigate("/"); // ✅ redirect to home route
             if (res.ok) {
+                localStorage.setItem("token", data.token); // Store token for PrivateRoute
                 alert("Login successful!");
-                navigate("/"); // ✅ redirect to home
+                navigate("/"); // Redirect to main homepage (which is protected)
             } else {
                 alert(data.message || "Login failed");
             }
@@ -63,7 +67,7 @@ export default function Login() {
                     <button type="submit">Submit</button>
                 </form>
                 <p>
-                    Don't have an account? <Link to="/SignUp"> Sign Up </Link>
+                    Don't have an account? <Link to="/signup"> Sign Up </Link>
                 </p>
             </div>
         </div>

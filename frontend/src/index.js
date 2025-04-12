@@ -12,17 +12,19 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "./index.css"; // Optional: Global styles
-// import { unstable_HistoryRouter as HistoryRouter, createBrowserHistory } from "react-router-dom";
+import { AuthProvider } from "./AuthContext"; // ✅ Import AuthProvider
+import "./index.css";
 
-// const history = createBrowserHistory({ v7_startTransition: true });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* Wrap App with BrowserRouter */}
-      <App />
-    </BrowserRouter>
+    <AuthProvider> {/* ✅ Wrap everything in AuthProvider */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );
+
