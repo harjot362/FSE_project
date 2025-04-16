@@ -50,6 +50,7 @@ import Header from "./components/Header";
 import Slider from "./components/Slider";
 import Subscription from "./components/Subscription";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot";
 
 // import { useAuth } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
@@ -76,6 +77,8 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/Chatbot" element={<Chatbot />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>

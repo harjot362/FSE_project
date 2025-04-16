@@ -8,3 +8,10 @@ CREATE TABLE IF NOT EXISTS subscriptions (
 );
 
 SELECT id, name, email, password FROM users;
+
+CREATE TABLE chat_history (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_message TEXT,
+  bot_reply TEXT,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

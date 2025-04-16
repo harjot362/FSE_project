@@ -1,0 +1,100 @@
+/* Chatbot container styles */
+.chatbot-container {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    height: calc(100vh - 80px);
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(156, 124, 70, 0.08); /* Soft shadow */
+  }
+  
+  /* Chat window styles */
+  .chat-window {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  /* Message styling */
+  .message {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 70%;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: #f5f5f5; /* Light background */
+  }
+  
+  /* Bot message styles */
+  .message.bot {
+    background-color: #f1e6d8; /* Soft brownish-beige */
+    align-self: flex-start;
+  }
+  
+  /* User message styles */
+  .message.user {
+    background-color: #9d6b53; /* Brown color */
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  
+  /* Input area styling */
+  .input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  /* Input field styling */
+  .input-area input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Send button styling */
+  .input-area button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #9d6b53; /* Brown color */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a cloud-like effect */
+  }
+  
+  /* Hover effect for the button */
+  .input-area button:hover {
+    background-color: #9c4e31; /* Lighter brown */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  }
+  
+  /* Active button effect */
+  .input-area button:active {
+    background-color: #7d4e2b; /* Darker brown */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Focused button */
+  .input-area button:focus {
+    outline: none;
+  }
+  

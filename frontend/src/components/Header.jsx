@@ -67,6 +67,9 @@ const Header = () => {
           <FaMapMarkerAlt className="location-icon" />
           {selectedLocation}
         </div>
+        <div className="chatbot-button" onClick={() => navigate("/chatbot")}>
+</div>
+
 
         <div className="nav-item">About Us</div>
         <button onClick={() => navigate("/login")} className="get-started">Get Started</button>
