@@ -16,6 +16,8 @@
 // });
 
 // module.exports = db;
+require("dotenv").config(); // 🔥 This line must come before you use process.env
+console.log("🔍 DB_USER from env:", process.env.DB_USER);
 
 const mysql = require("mysql2");
 

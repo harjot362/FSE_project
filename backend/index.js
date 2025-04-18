@@ -5,6 +5,7 @@ dotenv.config();
 require("dotenv").config();
 
 const db = require("./db"); // ✅ Using the db connection from db.js
+const nodemailer = require("nodemailer"); // Import Nodemailer for sending emails
 
 const app = express();
 
@@ -17,6 +18,50 @@ app.use(cors({
 app.use(express.json());
 
 // No need to define `db.connect()` again if it's in db.js
+
+// Subscription route
+app.post("/subscribe", (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ error: "Email is required" });
+  }
+
+  // Insert subscription into the database
+  const query = "INSERT INTO subscriptions (email) VALUES (?)";
+
+  db.query(query, [email], (err, result) => {
+    if (err) {
+      console.error("❌ Error subscribing user:", err.message);
+      return res.status(500).json({ error: "Subscription failed" });
+    }
+
+    // Send a confirmation email to the user
+    const transporter = nodemailer.createTransport({
+      service: "gmail", // Use Gmail or your preferred email service
+      auth: {
+        user: process.env.EMAIL_USER, // Your email (e.g., your_email@gmail.com)
+        pass: process.env.EMAIL_PASS, // Your app password
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Subscription Confirmation",
+      text: "Thank you for subscribing to SimplyWell! You will receive the latest updates and news.",
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.error("❌ Error sending email:", err.message);
+        return res.status(500).json({ error: "Failed to send confirmation email." });
+      }
+      console.log("✅ Confirmation email sent:", info.response);
+      return res.status(200).json({ message: "Subscription successful! Please check your email." });
+    });
+  });
+});
 
 // Signup route
 app.post("/signup", (req, res) => {

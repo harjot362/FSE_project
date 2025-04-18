@@ -1,3 +1,4 @@
+// Subscription.jsx
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FiMail, FiArrowRight } from "react-icons/fi";
@@ -5,17 +6,15 @@ import "./Subscription.css";
 
 function Subscription() {
   const location = useLocation();  
-  const [email, setEmail] = useState(""); // ✅ Make sure this line exists
+  const [email, setEmail] = useState("");
 
-  // Hide subscription on auth pages
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
-  if (isAuthPage) return null; 
+  if (isAuthPage) return null;
 
-  // Handle form submission
   const handleSubscribe = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/subscribe", {
+      const response = await fetch("http://localhost:5001/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -24,7 +23,7 @@ function Subscription() {
       const data = await response.json();
       if (response.ok) {
         alert("Subscription successful!");
-        setEmail(""); // ✅ Make sure this function is correctly called
+        setEmail("");
       } else {
         alert(data.error || "Subscription failed");
       }
